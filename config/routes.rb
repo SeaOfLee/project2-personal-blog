@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
+  get 'posts/new'
+
+  get 'posts/show'
+
+  get 'posts/edit'
+
   # get 'users/index'
 
   # get 'users/new'
@@ -7,6 +15,7 @@ Rails.application.routes.draw do
 
   # get 'users/edit'
   resources :users
+  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
