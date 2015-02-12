@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-
-  get 'posts/new'
-
-  get 'posts/show'
-
-  get 'posts/edit'
-
-  # get 'users/index'
-
-  # get 'users/new'
-
-  # get 'users/show'
-
-  # get 'users/edit'
-  resources :users
+  resource :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:index, :new, :create]
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
