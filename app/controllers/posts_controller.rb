@@ -20,8 +20,17 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params.require(:post).permit(:title, :post_text))
+      redirect_to posts_path
+    else
+      render 'edit'
+    end
   end
 end
 
 
-# u = User.where(email: params[:user][:email]).first

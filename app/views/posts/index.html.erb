@@ -1,1 +1,6 @@
-posts#index
+<h1>posts#index</h1>
+
+<% @posts.each do |p| %>
+  <%= p.title %><br><br>
+  <%= p.post_text %><br>
+<% end %>
