@@ -1,9 +1,10 @@
 
 <% @posts.each do |p| %>
-  <strong>
-  <h3><%= p.title %></h3>
+  <div class="col-md-8">
+  <strong><h3><%= p.title %></h3>
   <br></strong> 
   <%= p.post_text %><br>
   <%= link_to 'View', p %>
+  </div>
   <br>
 <% end %>
