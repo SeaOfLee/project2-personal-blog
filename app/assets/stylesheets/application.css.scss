@@ -14,3 +14,16 @@
  *= require_self
  */
 @import 'bootstrap';
+
+.nav-logo {
+  background-image: url(Hi_Lee.png);
+  width: 300px;
+  height: 70px;
+  background-size: cover;
+}
+
+.navbar {
+  height: 70px !important;
+  background-color: #dadada;
+}
+
