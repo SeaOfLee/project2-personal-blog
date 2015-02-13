@@ -1,6 +1,10 @@
 <h1>posts#index</h1>
 
 <% @posts.each do |p| %>
-  <%= p.title %><br><br>
+  <strong>
+  <h3><%= p.title %></h3>
+  <br></strong> 
   <%= p.post_text %><br>
+  <%= link_to 'View', p %>
+  <br>
 <% end %>

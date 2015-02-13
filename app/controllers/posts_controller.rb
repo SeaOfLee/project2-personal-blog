@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(:created_at).reverse
   end
 
   def new
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     # raise params.inspect
-    @post = Post.new(params.require(:post).permit(:title, :post_text, :user_id))
+    @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
     end
@@ -25,12 +25,23 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(params.require(:post).permit(:title, :post_text))
+    if @post.update(post_params)
       redirect_to posts_path
     else
       render 'edit'
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :post_text, :user_id)
+  end
+
 end
 
 
