@@ -10,26 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :'confirm password' %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :nickname %><br>
+        <%= f.text_field :nickname %>
+      </div>
+      <div class="field">
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :'confirm password' %><br>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
   
 <% end %>

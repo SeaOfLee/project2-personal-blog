@@ -6,6 +6,17 @@
   <%= @user.nickname %>
 </p>
 
+<div class="col-md-8">
+    <% if @user.comments.any? %>
+      <h3>comments (<%= @user.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
