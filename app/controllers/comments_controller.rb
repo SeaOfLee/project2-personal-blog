@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       flash[:success] = "comment created!"
       redirect_to root_url
     else
-      render ''
+      render 'shared/_comment_form'
     end
   end
 
