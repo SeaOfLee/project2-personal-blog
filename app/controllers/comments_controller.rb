@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
   
   def create
-    @post = Post.where(id: params[:id]).first
-    @comment = Comment.new(comment_params)
-    @comment.post = @post
+    @post = Post.where(id: params[:post_id]).first
+    @comment = @post.comments.create(comment_params)
     @comment.user = current_user
     if @comment.save
       flash[:success] = "comment created!"
-      redirect_to root_url
+      redirect_to post_path(@post)
     else
       render 'shared/_comment_form'
     end
@@ -19,6 +18,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:comment_text)
+      params.require(:comment).permit(:comment_text, :post_id)
     end
 end
