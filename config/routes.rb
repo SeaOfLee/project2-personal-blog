@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:new, :create, :destroy]
   resources :users
-  resources :posts do 
+  resources :posts do
     resources :comments
   end
+  
 
   root 'posts#index'
 
