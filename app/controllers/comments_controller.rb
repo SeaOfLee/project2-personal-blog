@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
   
   def create
-    @comment = current_user.comments.build(comment_params)
+    @post = Post.where(id: params[:id]).first
+    @comment = Comment.new(comment_params)
+    @comment.post = @post
+    @comment.user = current_user
     if @comment.save
       flash[:success] = "comment created!"
       redirect_to root_url

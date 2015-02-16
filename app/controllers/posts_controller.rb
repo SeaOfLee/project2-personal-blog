@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.where(id: params[:id]).first
+    @comment = Comment.new
   end
 
   def edit
