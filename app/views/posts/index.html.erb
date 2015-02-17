@@ -4,11 +4,12 @@
     <div class="col-md-8 blog_content">
       <strong><h3><%= p.title %></h3>
       <br></strong> 
-      <p><%= p.post_text %></p>
+      <p><%= truncate(p.post_text, :length => 800, separator: ' ') -%></p>
         <%= link_to 'View', p %> 
         | <%= link_to 'Comments', p %> (<%= p.comments.count %>)
       <% if current_user != nil && current_user.is_admin == true %>
         <%= link_to 'Edit', edit_post_path(p) %> 
+        |
         <%= link_to ' Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
