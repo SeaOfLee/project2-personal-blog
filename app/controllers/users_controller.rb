@@ -20,16 +20,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(params[:id]).first
+    @user = User.where(id: params[:id]).first
     
   end
 
   def edit
-    @user = User.where(params[:id]).first
+    @user = User.where(id: params[:id]).first
   end
 
   def update
-    @user = User.where(params[:id]).first
+    @user = User.where(id: params[:id]).first
     if @user.update(user_params)
       redirect_to users_path
     else
@@ -38,13 +38,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.where(params[:id]).first
+    @user = User.where(id: params[:id]).first
     @user.destroy
-    redirect_to posts_path
+    redirect_to users_path
   end
 
+private
+
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name, :nickname)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :nickname, :avatar)
   end
 
 end
