@@ -1,13 +1,12 @@
 
 
   <div class="row">
-    <div class="col-md-8 blog_content">
+    <div class="col-md-8 blog_content col-md-offset-1">
       <br>
-      <p><%= comment.comment_text %></p>
+      <p><%= comment.user.nickname %> said: <%= comment.comment_text %></p>
       <span class="timestamp"> Posted <%= time_ago_in_words(comment.created_at) %> ago.
       <%= link_to ' Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
     </div>
-    <!-- <div class="col-md-4 right_nav"></div> -->
     
   </div>

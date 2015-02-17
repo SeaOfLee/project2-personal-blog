@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-8 blog_content">
+  <div class="col-md-8 blog_content col-md-offset-1">
     <strong><h3><%= @post.title %></h3>
     <br></strong> 
     <p><%= @post.post_text %></p>
@@ -11,7 +11,7 @@
 </div>
 
 <%= render @post.comments %>
+<%= render 'comments/form' %>
 
-<%= render 'comments/form'  %>
 
 

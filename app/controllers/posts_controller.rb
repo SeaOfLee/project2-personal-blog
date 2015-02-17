@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if current_user != nil
+      @post = Post.new
+    else
+      redirect_to posts_path
+    end
   end
 
   def create
